@@ -38,11 +38,6 @@ const Register: FC = () => {
   const [confirmationPin, setConfirmationPin] = useState<string>('')
   const [userEmail, setUserEmail] = useState<string>('')
   
-  useEffect(() => {
-    console.log('initialising page')
-  }, [])
-  
-  console.log('rendering page')
   const handleConfirmPinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setConfirmationPin(value)

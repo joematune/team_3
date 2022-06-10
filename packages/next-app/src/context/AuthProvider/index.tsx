@@ -38,27 +38,25 @@ const AuthProvider: React.FC = ({ children }) => {
   }
   
   const login = async (email: string, password: string): Promise<void> => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        // update auth loading state
-        setIsAuthenticating(true)
-        
-        // sign in user
-        const user = await Auth.signIn(email, password)
-        
-        // set auth context
-        setUser({
-          token: user.signInUserSession.accessToken.jwtToken,
-          username: user.attributes.sub
-        })
-        
-        setIsAuthenticated(true)
-        setIsAuthenticating(false)
-      } catch (error) {
-        setIsAuthenticating(false)
-        throw error
-      }
-    })
+    try {
+      // update auth loading state
+      setIsAuthenticating(true)
+      
+      // sign in user
+      const user = await Auth.signIn(email, password)
+      
+      // set auth context
+      setUser({
+        token: user.signInUserSession.accessToken.jwtToken,
+        username: user.attributes.sub
+      })
+      
+      setIsAuthenticated(true)
+      setIsAuthenticating(false)
+    } catch (error) {
+      setIsAuthenticating(false)
+      throw error
+    }
   }
   
   const register = async (email: string, password: string): Promise<void> => {
