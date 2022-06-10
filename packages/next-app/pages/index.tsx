@@ -56,7 +56,7 @@ function Home() {
         )}
       </main> */}
 
-      <Container height="100vh">
+      <Container height="100vh"  background={'linear-gradient(261.63deg, #0B0B0D 4.87%, #FB03F5 87.02%)'}>
         <Hero />
         <Main>
           <Feature/>
