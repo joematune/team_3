@@ -1,5 +1,4 @@
-import ThreeTierPricing from "../components/Tiers/Tiers"
-import SocialProfileSimple from "../components/ArtistProfile/SingleHero"
+import ThreeTierPricing from "../components/Tiers"
 
 import {
     Container

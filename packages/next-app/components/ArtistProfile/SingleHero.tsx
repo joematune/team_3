@@ -11,7 +11,13 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function SocialProfileSimple() {
+  export default function SocialProfileSimple({ 
+    id,
+    handle,
+    name,
+    artistImg,
+    description
+  }) {
     return (
       <Center py={6}>
         <Box
@@ -24,9 +30,7 @@ import {
           textAlign={'center'}>
           <Avatar
             size={'xl'}
-            src={
-              'https://media.pitchfork.com/photos/5c92bae8f3672356b4df6e72/4:3/w_524,h_393,c_limit/Oh%20Sees-GettyImages-688811658.jpg'
-            }
+            src={artistImg}
             alt={'Avatar Alt'}
             mb={4}
             pos={'relative'}
@@ -43,20 +47,16 @@ import {
             }}
           />
           <Heading fontSize={'2xl'} fontFamily={'body'}>
-            Osees
+            { name }
           </Heading>
           <Text fontWeight={600} color={'gray.500'} mb={4}>
-            @osees
+           { handle }
           </Text>
           <Text
             textAlign={'center'}
             color={useColorModeValue('gray.700', 'gray.400')}
             px={3}>
-            Musician, Songwriter and Artist. PM for work inquires or{' '}
-            <Link href={'#'} color={'blue.400'}>
-              #tag
-            </Link>{' '}
-            me in your posts
+            { description }
           </Text>
   
           <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
