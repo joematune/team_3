@@ -46,7 +46,7 @@ const Register: FC = () => {
   const handleSubmitConfirmationPin = async () => {
     try {
       if (!!confirmationPin) {
-        const confirmResponse = await confirm(userEmail, confirmationPin)
+        await confirm(userEmail, confirmationPin)
         onClose()
       }
     } catch (e) {
