@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "nextapp87c7f9c9": {}
+      },
+      "function": {
+        "postConfirmation": {
+          "deploymentBucketName": "amplify-nextapp-dev-110225-deployment",
+          "s3Key": "amplify-builds/postConfirmation-5462326d664339557849-build.zip"
+        }
       }
     }
   }
