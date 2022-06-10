@@ -20,14 +20,27 @@ cd packages/next-app
 
 ### Initialise Amplify
 
-```
-amplify init
-```
-
 Using:
 
 - Your AWS Credentials
-- Region: `eu-west-1`
+
+```
+amplify init
+
+# Do you want to use an existing env? /yes
+# dev
+
+# Select your editor
+# Probs VS code
+
+# Select the auth method you want to use
+# You probs want to use AWS Access Keys
+
+# Enter in your keys 🐕
+
+# Region
+# `eu-west-1`
+```
 
 ### Generate The Good Stuff
 
