@@ -1,7 +1,12 @@
-import React from "react"
+import ThreeTierPricing from "../components/Tiers"
 
-const ArtistProfile = () => {
-  return <p>Artist Profile</p>
-}
+import {
+    Container
+  } from '@chakra-ui/react';
 
+const ArtistProfile = () => 
+<Container maxW={'5xl'} py={12}>
+<ThreeTierPricing />
+</Container>
 export default ArtistProfile
+
