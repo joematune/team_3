@@ -6,6 +6,12 @@
 
 After cloning the repo, to setup your own amplify environment for development, in your terminal of choice do the following:
 
+### Install Amplify Client
+
+```
+npm install -g @aws-amplify/cli
+```
+
 ### Enter Project Directory
 
 ```
