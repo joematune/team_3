@@ -1,4 +1,8 @@
 import { ReactNode } from 'react';
+import { useWeb3React } from "@web3-react/core";
+
+import { ContractFactory } from "@ethersproject/contracts";
+
 import {
   Box,
   Stack,
@@ -12,6 +16,9 @@ import {
   ListIcon,
   Button,
 } from '@chakra-ui/react';
+import tier1 from '../../contracts/UmculoTier1.json';
+import tier2 from '../../contracts/UmculoTier2.json';
+import tier3 from '../../contracts/UmculoTier3.json';
 import { FaCheckCircle } from 'react-icons/fa';
 
 function PriceWrapper({ children }: { children: ReactNode }) {
@@ -29,6 +36,30 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 }
 
 export default function ThreeTierPricing() {
+const { account, library } = useWeb3React();
+const deployContract = async(tier)=>{
+  // ABI description as JSON structure
+  let abi;
+  let bytecode;
+  if(tier == 1){
+   abi = tier1.abi;
+   bytecode = tier1.bin;
+  }else if (tier == 2){
+   abi = tier2.abi;
+   bytecode = tier2.bin;
+  }else if (tier == 3){
+   abi = tier3.abi;
+   bytecode = tier3.bin;
+  }
+
+  // Smart contract EVM bytecode as hex
+  // Create Contract proxy class
+  let factory = await new ContractFactory(abi, bytecode, library.getSigner(account));
+  const contract = await factory.deploy('SnoopDogg', 'SNOOP');
+  console.log(contract.address)
+  //store in db
+}
+
   return (
     <Box py={12}>
       <VStack spacing={2} textAlign="center">
