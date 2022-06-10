@@ -6,15 +6,18 @@ import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import getLibrary from "../getLibrary"
 import "../styles/globals.css"
 import awsconfig from "../src/aws-exports"
-import { theme } from "../src/theme"
+import theme from "../src/theme"
+import AuthProvider from "../src/context/AuthProvider";
 
 Amplify.configure(awsconfig)
 
 function NextWeb3App({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <ChakraProvider resetCSS theme={theme}>
-        <Component {...pageProps} />
+      <ChakraProvider theme={theme}>
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
       </ChakraProvider>
     </Web3ReactProvider>
   )

@@ -2,8 +2,6 @@
 import { theme as chakraTheme } from '@chakra-ui/react'
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 
-import images from './images'
-
 const breakpoints = createBreakpoints({
   sm: '30em',
   md: '48em',
@@ -20,12 +18,15 @@ const theme = {
     color: '#000000'
   },
   fonts: {
-    body: 'Poppins',
-    mono: 'Poppins',
-    heading: 'Poppins'
+    body: 'Barlow',
+    mono: 'Barlow',
+    heading: 'Barlow'
   },
   colors: {
     ...chakraTheme.colors,
+    gray: '#2D3047',
+    purple: '#DC0073',
+    blue: '#780EDC',
     brand: {
       50: '#FFF3C2',
       100: '#FFEFAD',
@@ -119,4 +120,4 @@ const theme = {
   }
 }
 
-export { theme, images }
+export default theme
