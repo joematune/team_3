@@ -5,6 +5,6 @@
     "lerna": "^5.0.0"
   },
   "scripts": {
-    "dev": "lerna run start --parallel"
+    "dev": "lerna run dev --parallel"
   }
 }
