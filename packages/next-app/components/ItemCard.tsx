@@ -16,9 +16,9 @@ import { colors } from "../src/theme"
 const ItemCard = ({ item }) => {
   return (
     <Box
-      backgroundColor={"#DC0073"}
+      backgroundColor={colors.grey}
       borderRadius={10}
-      boxShadow={"5px 5px #780EDC"}
+      boxShadow={`5px 5px ${colors.purple}`}
       alignContent="center"
       justifyContent={"center"}
       position="relative"
@@ -66,7 +66,7 @@ const ItemCard = ({ item }) => {
       <List spacing={3} paddingLeft={5} paddingTop={5} marginLeft={5}>
         {item?.perks?.map((perk) => {
           return (
-            <ListItem fontWeight="bold" color={colors.grey}>
+            <ListItem fontWeight="bold" color={colors.blue}>
               <ListIcon as={CheckCircleIcon} color={colors.blue} />
               {perk.title}
             </ListItem>

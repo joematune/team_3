@@ -103,7 +103,9 @@ const Dashboard = () => {
     <>
       <Navbar />
       <Flex
-        backgroundColor={"#2D3047"}
+        background={
+          "linear-gradient(261.63deg,  #0B0B0D 4.87%, #FB03F5 87.02%)"
+        }
         maxW="100vw"
         justifyContent={"center"}
         alignContent="center"
