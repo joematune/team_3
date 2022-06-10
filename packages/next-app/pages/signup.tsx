@@ -143,7 +143,7 @@ const Register: FC = () => {
           border="1px solid white"
         >
           <Flex direction="column">
-            <Text fontWeight={700} mb={4}>Enter Confirmation PIN</Text>
+            <Text fontWeight={700} mb={4}>Enter Email Confirmation PIN</Text>
             <Input
               type="text"
               bgColor="white"
