@@ -22,10 +22,6 @@ import { useRouter } from "next/router"
 
 const Links = [
   {
-    name: "Home",
-    url: "/",
-  },
-  {
     name: "Dashboard",
     url: "/dashboard",
   },
@@ -63,6 +59,7 @@ const NavLink = (props) => {
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const router = useRouter()
 
   return (
     <>
@@ -76,7 +73,13 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>UmculoBloc</Box>
+            <Box
+              color={colors.white}
+              onClick={() => router.push("/")}
+              cursor="pointer"
+            >
+              UmculoBloc
+            </Box>
           </HStack>
           <Flex alignItems={"center"}>
             <HStack
