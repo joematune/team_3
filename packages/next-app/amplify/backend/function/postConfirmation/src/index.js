@@ -27,7 +27,7 @@ exports.handler = async (event, context, callback) => {
     return
   }
   const environment = process.env.ENV
-  const GraphQLAPIIdOutput = process.env.API_HOUSEBOARD_GRAPHQLAPIIDOUTPUT
+  const GraphQLAPIIdOutput = process.env.API_NEXTAPP_GRAPHQLAPIIDOUTPUT
   try {
     // attatch cognito group to cognito user
     const addUserParams = {
