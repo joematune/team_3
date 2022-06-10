@@ -18,3 +18,9 @@ bootstrap packages
 # /
 npx lerna bootstrap
 ```
+
+run the app
+
+```bash
+npm run dev
+```
