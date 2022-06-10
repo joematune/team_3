@@ -1,4 +1,5 @@
-import { FC, default as React, useState } from 'react'
+import { FC, default as React } from 'react'
+import { useRouter } from 'next/router'
 import {
   Flex,
   Button,
@@ -28,6 +29,7 @@ const validationSchema = yup.object({
 
 const Login: FC = () => {
   const { login } = useAuthContext()
+  const router = useRouter()
   
   return (
     <Flex
@@ -60,7 +62,7 @@ const Login: FC = () => {
               
               await login(values.email, values.password)
               
-              console.log('LOGGED IN')
+              await router.push('/dashboard')
   
               /**
                * Redirect to relevant page

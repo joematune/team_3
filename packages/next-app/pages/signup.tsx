@@ -1,4 +1,5 @@
 import { FC, default as React, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import {
   Flex,
   useDisclosure,
@@ -33,6 +34,7 @@ const validationSchema = yup.object({
 })
 
 const Register: FC = () => {
+  const router = useRouter()
   const { register, confirm } = useAuthContext()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [confirmationPin, setConfirmationPin] = useState<string>('')
@@ -48,6 +50,7 @@ const Register: FC = () => {
       if (!!confirmationPin) {
         await confirm(userEmail, confirmationPin)
         onClose()
+        await router.push('/login')
       }
     } catch (e) {
       console.log(e)

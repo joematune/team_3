@@ -6,6 +6,25 @@ import ETHBalance from "../components/ETHBalance";
 import TokenBalance from "../components/TokenBalance";
 import useEagerConnect from "../hooks/useEagerConnect";
 
+import { CheckCircleIcon, LinkIcon } from "@chakra-ui/icons";
+import {
+  Code,
+  Link as ChakraLink,
+  List,
+  ListIcon,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
+
+import { Container } from "../components/Container";
+import { CTA } from "../components/CTA";
+import { DarkModeSwitch } from "../components/DarkModeSwitch";
+import Footer from "../components/Landing/Footer";
+import Hero from "../components/Landing/Hero";
+import Feature  from "../components/Landing/Feature"
+import { Main } from "../components/Main";
+import Navbar from "../components/Navbar";
+
 const DAI_TOKEN_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
 
 function Home() {
@@ -23,22 +42,10 @@ function Home() {
       </Head>
 
       <header>
-        <nav>
-          <Link href="/">
-            <a>next-web3-boilerplate</a>
-          </Link>
-
-          <Account triedToEagerConnect={triedToEagerConnect} />
-        </nav>
+        <Navbar/>
       </header>
 
-      <main>
-        <h1>
-          Welcome to{" "}
-          <a href="https://github.com/mirshko/next-web3-boilerplate">
-            next-web3-boilerplate
-          </a>
-        </h1>
+      {/* <main>
 
         {isConnected && (
           <section>
@@ -47,7 +54,15 @@ function Home() {
             <TokenBalance tokenAddress={DAI_TOKEN_ADDRESS} symbol="DAI" />
           </section>
         )}
-      </main>
+      </main> */}
+
+      <Container height="100vh">
+        <Hero />
+        <Main>
+          <Feature/>
+        </Main>
+        <Footer/>
+      </Container>
 
       <style jsx>{`
         nav {
