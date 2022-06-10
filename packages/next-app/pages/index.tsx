@@ -19,9 +19,11 @@ import {
 import { Container } from "../components/Container";
 import { CTA } from "../components/CTA";
 import { DarkModeSwitch } from "../components/DarkModeSwitch";
-import { Footer } from "../components/Footer";
-import { Hero } from "../components/Hero";
+import Footer from "../components/Landing/Footer";
+import Hero from "../components/Landing/Hero";
+import Feature  from "../components/Landing/Feature"
 import { Main } from "../components/Main";
+import Navbar from "../components/Navbar";
 
 const DAI_TOKEN_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
 
@@ -40,22 +42,10 @@ function Home() {
       </Head>
 
       <header>
-        <nav>
-          <Link href="/">
-            <a>next-web3-boilerplate</a>
-          </Link>
-
-          <Account triedToEagerConnect={triedToEagerConnect} />
-        </nav>
+        <Navbar/>
       </header>
 
-      <main>
-        <h1>
-          Welcome to{" "}
-          <a href="https://github.com/mirshko/next-web3-boilerplate">
-            next-web3-boilerplate
-          </a>
-        </h1>
+      {/* <main>
 
         {isConnected && (
           <section>
@@ -64,47 +54,14 @@ function Home() {
             <TokenBalance tokenAddress={DAI_TOKEN_ADDRESS} symbol="DAI" />
           </section>
         )}
-      </main>
+      </main> */}
 
       <Container height="100vh">
         <Hero />
         <Main>
-          <Text color="text">
-            Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code>{" "}
-            + <Code>TypeScript</Code>.
-          </Text>
-
-          <List spacing={3} my={0} color="text">
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <ChakraLink
-                isExternal
-                href="https://chakra-ui.com"
-                flexGrow={1}
-                mr={2}
-              >
-                Chakra UI <LinkIcon />
-              </ChakraLink>
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <ChakraLink
-                isExternal
-                href="https://nextjs.org"
-                flexGrow={1}
-                mr={2}
-              >
-                Next.js <LinkIcon />
-              </ChakraLink>
-            </ListItem>
-          </List>
+          <Feature/>
         </Main>
-
-        <DarkModeSwitch />
-        <Footer>
-          <Text>Next ❤️ Chakra</Text>
-        </Footer>
-        <CTA />
+        <Footer/>
       </Container>
 
       <style jsx>{`
