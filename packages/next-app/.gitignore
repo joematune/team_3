@@ -5,6 +5,9 @@ node_modules
 .faunarc
 .DS_Store
 
+generated
+graphql
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
