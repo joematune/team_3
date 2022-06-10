@@ -13,7 +13,9 @@ Amplify.configure(awsconfig)
 function NextWeb3App({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Component {...pageProps} />
+      <ChakraProvider resetCSS theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </Web3ReactProvider>
   )
 }
