@@ -8,8 +8,18 @@ import {
   Text,
   Stack,
 } from "@chakra-ui/react";
+import React from "react";
+import { useGetUserQuery } from "../src/generated/graphql";
 
 const Profile: React.FC = () => {
+  const { data } = useGetUserQuery({
+    variables: {
+      id: localStorage.getItem('userId')
+    }
+  })
+  React.useEffect(() => {
+    console.log(data)
+  }, [data])
   return (
     <Center py={6}>
       <Box
@@ -51,7 +61,7 @@ const Profile: React.FC = () => {
               fontFamily={"body"}
               color={"white"}
             >
-              John Doe
+              {data?.getUser?.email}
             </Heading>
             <Text color={"white"} fontSize={"2xl"}>
               johndoe@umculobloc.co.za
