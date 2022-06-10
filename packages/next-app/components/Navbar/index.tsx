@@ -17,6 +17,7 @@ import {
   Stack,
 } from "@chakra-ui/react"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
+import { colors } from "../../src/theme"
 
 const Links = [
   {
@@ -61,7 +62,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box bg={colors.grey} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -71,13 +72,14 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <Box color={colors.white}>Logo</Box>
           </HStack>
           <Flex alignItems={"center"}>
             <HStack
               as={"nav"}
               spacing={4}
               display={{ base: "none", md: "flex" }}
+              color={colors.white}
             >
               {Links.map((link) => (
                 <NavLink key={link.name} url={link.url}>
