@@ -15,7 +15,7 @@ import { IoArrowForward } from 'react-icons/io5';
       <Stack background={'linear-gradient(261.63deg,  #0B0B0D 4.87%, #FB03F5 87.02%)'} minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
-            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} fontWeight={700}>
               <Text
                 as={'span'}
                 position={'relative'}
@@ -31,19 +31,18 @@ import { IoArrowForward } from 'react-icons/io5';
                   bg: 'blue.400',
                   zIndex: -1,
                 }}>
-                Music for NFT creators.
+                    Purchase NFT’s with various Options that have different benefits.
               </Text>
-              <br />{' '}
-              <Text color={'white'} as={'span'}>
-              Digital Music for fans.
-              </Text>{' '}
             </Heading>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} color={'#FFFFFF'}>
-            UmculoBloc's core focus is to put the power of music into the hands of emerging musicians and well-established musicians by creating a marketplace that is driven by Web3 technologies such as  Blockchain, Ethereum and upliftment plans that are funded through UmculoBloc.
+            <Text fontSize={'20px'} fontWeight={600} color={'white'} as={'span'}>
+                Your NFT, whether it might be a single song or Album can be traded on any platform that still maintains the continuation of revenue towards the artist.
             </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <Button>Discover More <Icon left={3} as={IoArrowForward} color={'black.500'} w={5} h={5} rounded={'full'}></Icon></Button>
-            </Stack>
+            <Text fontSize={{ base: 'md', lg: 'lg' }} fontWeight={400} color={'#FFFFFF'}>
+                UmculoBloc's core focus is to put the power of music into 
+                the hands of emerging musicians and well-established musicians
+                by creating a marketplace that is driven by Web3 technologies such as 
+                Blockchain, Ethereum and upliftment plans that are funded through UmculoBloc.
+            </Text>
           </Stack>
         </Flex>
         <Flex flex={1}>
