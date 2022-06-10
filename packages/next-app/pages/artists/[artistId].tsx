@@ -1,10 +1,11 @@
-import { useRouter } from "next/router"
+
 import React from "react"
 
 import ThreeTierPricing from "../../components/Tiers"
 import SocialProfileSimple from "../../components/ArtistProfile/SingleHero"
 
 import { useGetUserQuery } from "../../src/generated/graphql";
+
 
 const artistDetails = [
   {
@@ -16,22 +17,21 @@ const artistDetails = [
   }
 ]
 
-const Artist = () => {
-  const router = useRouter()
-  const { artistId } = router.query
+const Artist : React.FC = () => {
 
-  const { data } = useGetUserQuery({
-    variables: {
-      id: localStorage.getItem('userId')
-    }
-  })
+  const ISSERVER = typeof window === "undefined"; 
+  if(!ISSERVER) { 
+    const { data } = useGetUserQuery({
+      variables: {
+        id: localStorage ? localStorage.getItem('userId') : null
+      }
+    })
+
+    React.useEffect(() => {
+      console.log(data)
+    }, [data])
+  }
   
-  React.useEffect(() => {
-    console.log(data)
-  }, [data])
-
-  // return <p>Artist: {artistId}</p>
-
   return (
     <div>
       <SocialProfileSimple 
