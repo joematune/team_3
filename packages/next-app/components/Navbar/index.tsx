@@ -16,7 +16,8 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react"
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { useRouter } from 'next/router';
 
 const Links = [
   {
@@ -41,8 +42,11 @@ const Links = [
   },
 ]
 
-const NavLink = ({ children, url }: { children: ReactNode; url: string }) => (
-  <Link
+const NavLink = (props ) =>  {
+
+const router = useRouter();
+ return (
+    <Link
     px={2}
     py={1}
     rounded={"md"}
@@ -50,11 +54,12 @@ const NavLink = ({ children, url }: { children: ReactNode; url: string }) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={url ? url : "#"}
+    onClick={(e) => router.push(props.url) }
   >
-    {children}
+    {props.name}
   </Link>
-)
+ )
+}
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -71,7 +76,7 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <Box>UmculoBloc</Box>
           </HStack>
           <Flex alignItems={"center"}>
             <HStack
@@ -80,7 +85,7 @@ export default function Navbar() {
               display={{ base: "none", md: "flex" }}
             >
               {Links.map((link) => (
-                <NavLink key={link.name} url={link.url}>
+                <NavLink name={link.name} url={link.url}>
                   {link.name}
                 </NavLink>
               ))}
@@ -92,7 +97,7 @@ export default function Navbar() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link.name} url={link.url}>
+                <NavLink name={link.name} url={link.url}>
                   {link.name}
                 </NavLink>
               ))}
