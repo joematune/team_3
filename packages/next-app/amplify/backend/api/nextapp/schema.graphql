@@ -3,7 +3,9 @@
 type User
   @model
   @auth(
-    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+    rules: [
+      { allow: groups, groups: ["User", "Artist"], operations: [read, update] }
+    ]
   ) {
   id: ID!
   phoneNumber: String
@@ -13,24 +15,39 @@ type User
 type Artist
   @model
   @auth(
-    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+    rules: [
+      {
+        allow: groups
+        groups: ["User", "Artist"]
+        operations: [read, update, create, delete]
+      }
+    ]
   ) {
   id: ID!
   name: String
   image: String
   items: [Item] @hasMany(indexName: "ArtistItems", fields: ["id"])
+  tier1: String
+  tier2: String
+  tier3: String
 }
 
 type Item
   @model
   @auth(
-    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+    rules: [
+      {
+        allow: groups
+        groups: ["User", "Artist"]
+        operations: [read, update, create, delete]
+      }
+    ]
   ) {
   id: ID!
   artistId: ID @index(name: "ArtistItems", sortKeyFields: ["id"])
   title: String
   image: String
-  tier: Foat
+  tier: Float
   perks: [Perk]
 }
 

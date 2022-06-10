@@ -7,11 +7,13 @@ import {
   List,
   ListIcon,
   ListItem,
+  SimpleGrid,
   Text,
 } from "@chakra-ui/react"
 import React from "react"
 import { CheckCircleIcon } from "@chakra-ui/icons"
 import { colors } from "../src/theme"
+import Lottie from "lottie-react-web"
 
 const ItemCard = ({ item }) => {
   return (
@@ -60,10 +62,10 @@ const ItemCard = ({ item }) => {
           // padding={5}
           textAlign="center"
         >
-          {item.artist}
+          {item.name}
         </Text>
       </Box>
-      <List spacing={3} paddingLeft={5} paddingTop={5} marginLeft={5}>
+      {/* <List spacing={3} paddingLeft={5} paddingTop={5} marginLeft={5}>
         {item?.perks?.map((perk) => {
           return (
             <ListItem fontWeight="bold" color={colors.blue}>
@@ -72,7 +74,61 @@ const ItemCard = ({ item }) => {
             </ListItem>
           )
         })}
-      </List>
+      </List> */}
+      <SimpleGrid columns={3}>
+        <Box textAlign={"center"} position="relative">
+          <Lottie
+            options={{
+              animationData: require("../public/assets/animations/check.json"),
+              loop: false,
+            }}
+          />
+          <Text
+            position={"absolute"}
+            left={"25%"}
+            color={colors.white}
+            fontWeight="bold"
+            bottom={"20px"}
+          >
+            Standard
+          </Text>
+        </Box>
+        <Box textAlign={"center"} position="relative">
+          <Lottie
+            options={{
+              animationData: require("../public/assets/animations/check.json"),
+              loop: false,
+            }}
+          />
+          <Text
+            position={"absolute"}
+            left={"36%"}
+            color={colors.white}
+            fontWeight="bold"
+            bottom={"20px"}
+          >
+            Gold
+          </Text>
+        </Box>
+        <Box textAlign={"center"} position="relative">
+          <Lottie
+            options={{
+              animationData: require("../public/assets/animations/x.json"),
+              loop: false,
+            }}
+            width="35%"
+          />
+          <Text
+            position={"absolute"}
+            left={"26%"}
+            color={colors.white}
+            fontWeight="bold"
+            bottom={"20px"}
+          >
+            Platinum
+          </Text>
+        </Box>
+      </SimpleGrid>
       <Divider
         width={"80%"}
         marginLeft="auto"
