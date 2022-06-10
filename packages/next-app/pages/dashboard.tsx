@@ -1,6 +1,7 @@
 import { Flex, SimpleGrid } from "@chakra-ui/react"
 import React from "react"
 import ItemCard from "../components/ItemCard"
+import Navbar from "../components/Navbar"
 
 const data = [
   {
@@ -99,19 +100,22 @@ const data = [
 
 const Dashboard = () => {
   return (
-    <Flex
-      backgroundColor={"#2D3047"}
-      maxW="100vw"
-      justifyContent={"center"}
-      alignContent="center"
-      alignItems={"center"}
-    >
-      <SimpleGrid columns={3} spacing={10} marginTop={20} marginBottom={20}>
-        {data.map((item) => (
-          <ItemCard item={item} />
-        ))}
-      </SimpleGrid>
-    </Flex>
+    <>
+      <Navbar />
+      <Flex
+        backgroundColor={"#2D3047"}
+        maxW="100vw"
+        justifyContent={"center"}
+        alignContent="center"
+        alignItems={"center"}
+      >
+        <SimpleGrid columns={3} spacing={10} marginTop={20} marginBottom={20}>
+          {data.map((item) => (
+            <ItemCard item={item} />
+          ))}
+        </SimpleGrid>
+      </Flex>
+    </>
   )
 }
 
