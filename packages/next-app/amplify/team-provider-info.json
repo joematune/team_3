@@ -18,7 +18,7 @@
       "function": {
         "postConfirmation": {
           "deploymentBucketName": "amplify-nextapp-dev-110225-deployment",
-          "s3Key": "amplify-builds/postConfirmation-5462326d664339557849-build.zip"
+          "s3Key": "amplify-builds/postConfirmation-4662614a726575725a64-build.zip"
         }
       }
     }
