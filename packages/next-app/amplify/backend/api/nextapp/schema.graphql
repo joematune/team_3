@@ -1,0 +1,39 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+type User
+  @model
+  @auth(
+    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+  ) {
+  id: ID!
+  phoneNumber: String
+  email: String
+}
+
+type Artist
+  @model
+  @auth(
+    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+  ) {
+  id: ID!
+  name: String
+  image: String
+  items: [Item] @hasMany(indexName: "ArtistItems", fields: ["id"])
+}
+
+type Item
+  @model
+  @auth(
+    rules: [{ allow: groups, groups: ["User"], operations: [read, update] }]
+  ) {
+  id: ID!
+  artistId: ID @index(name: "ArtistItems", sortKeyFields: ["id"])
+  title: String
+  image: String
+  tier: Foat
+  perks: [Perk]
+}
+
+type Perk {
+  title: String
+}
