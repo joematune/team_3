@@ -39,7 +39,7 @@ import { IoArrowForward } from 'react-icons/io5';
               </Text>{' '}
             </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} color={'#FFFFFF'}>
-                Music NFTs will continue to revolutionize the way that artists and fans create community together as we enter the upcoming year — undoubtedly changing the trajectory of countless budding music careers.
+            UmculoBloc's core focus is to put the power of music into the hands of emerging musicians and well-established musicians by creating a marketplace that is driven by Web3 technologies such as  Blockchain, Ethereum and upliftment plans that are funded through UmculoBloc.
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
               <Button>Discover More <Icon left={3} as={IoArrowForward} color={'black.500'} w={5} h={5} rounded={'full'}></Icon></Button>
