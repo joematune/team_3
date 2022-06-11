@@ -5,15 +5,17 @@ import { AppProps } from "next/app"
 import { ChakraProvider } from "@chakra-ui/react"
 import getLibrary from "../getLibrary"
 import "../styles/globals.css"
-import awsconfig from "./../src/aws-exports"
+import awsconfig from "../src/aws-exports"
+import theme from "../src/theme"
+import AuthProvider from "../src/context/AuthProvider";
 import client from "../apollo/client"
-import { theme } from "../src/theme"
 
 Amplify.configure(awsconfig)
 
 function NextWeb3App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider resetCSS theme={theme}>
+    <ChakraProvider theme={theme}>
+      <AuthProvider>
       <Web3ReactProvider getLibrary={getLibrary}>
         <ApolloProvider
           // @ts-ignore
@@ -22,6 +24,7 @@ function NextWeb3App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </ApolloProvider>
       </Web3ReactProvider>
+      </AuthProvider>
     </ChakraProvider>
   )
 }
