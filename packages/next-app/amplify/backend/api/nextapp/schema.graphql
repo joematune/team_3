@@ -9,6 +9,7 @@ type User
   ) {
   id: ID!
   phoneNumber: String
+  artist: Artist @hasOne
   email: String
 }
 
@@ -24,9 +25,12 @@ type Artist
     ]
   ) {
   id: ID!
+  userId: ID
+  user: User @belongsTo(fields: ["userId"])
   name: String
   image: String
   items: [Item] @hasMany(indexName: "ArtistItems", fields: ["id"])
+  collections: [String]
   tier1: String
   tier2: String
   tier3: String
