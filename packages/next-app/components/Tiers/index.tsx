@@ -34,6 +34,8 @@ import {
 import React from "react"
 import { useAuthContext } from "../../src/context/AuthProvider"
 import { Formik } from "formik"
+import useEagerConnect from "../../hooks/useEagerConnect"
+import Account from "../Account"
 
 function PriceWrapper({ children }: { children: ReactNode }) {
   return (
@@ -52,6 +54,10 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 
 const Tiers = () => {
   const { account, library } = useWeb3React()
+  const triedToEagerConnect = useEagerConnect()
+  const isConnected = typeof account === "string" && !!library
+  console.log("library", library)
+  console.log(account)
   const { user } = useAuthContext()
   const [artist, setArtist] = useState<any>({})
   const [isOpen, setIsOpen] = useState(false)
@@ -67,7 +73,8 @@ const Tiers = () => {
     },
   })
   React.useEffect(() => {
-    console.log(user)
+    console.log("USER", user)
+    console.log("Artist", artist)
     if (user?.username) {
       getArtist({
         variables: {
@@ -77,7 +84,7 @@ const Tiers = () => {
         },
       })
     }
-  }, [user])
+  }, [user, artist])
   const deployContract = async (tier, { collectionName, symbol }) => {
     // ABI description as JSON structure
     let abi
@@ -106,13 +113,16 @@ const Tiers = () => {
     console.log("Contract ⬇ ", contract)
     let list = artist.collections ? artist.collections : []
     list.push(collectionName)
+    let input = {
+      id: artist.id,
+      collections: list,
+    }
+    if (tier === 1) {
+      input[`tier${tier}`] = contract.address
+    }
     await updateArtist({
       variables: {
-        input: {
-          id: artist.id,
-          collections: list,
-          tier1: contract.address,
-        },
+        input: input,
       },
     })
     //store in db
@@ -123,6 +133,7 @@ const Tiers = () => {
       <VStack spacing={2} textAlign="center">
         \
         <Heading as="h1" fontSize="4xl">
+          <Account triedToEagerConnect={triedToEagerConnect} />
           {artist?.name}
         </Heading>
         <Heading as="h1" fontSize="4xl">
